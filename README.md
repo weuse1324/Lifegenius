@@ -201,7 +201,7 @@ pytest
 このプロジェクトは MIT License のもとでライセンスされています。
 
 連絡先
-プロジェクトリーダー: [あなたの名前] - [あなたのメールアドレス]
+プロジェクトリーダー: naoya kusunoki - 2005nkg@gmail.com
 プロジェクトウェブサイト: https://github.com/weuse1324/Lifegenius-website
 
 ロードマップ
