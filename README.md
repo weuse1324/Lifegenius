@@ -67,32 +67,31 @@
 
 ## プロジェクト構成
 
-lifegenius/
-├── client/             # フロントエンドアプリケーション (React, Next.js)
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── styles/
-│   │   └── utils/
-│   └── ...
-├── server/             # バックエンドアプリケーション (Python/Node.js)
-│   ├── app/            # アプリケーションのコアロジック
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   └── utils/
-│   ├── tests/          # テストコード
-│   └── ...
-├── data/               # データ関連ファイル (サンプルデータ、データセットなど)
-├── scripts/            # 各種スクリプト (データ処理、バッチ処理など)
-├── docs/               # プロジェクトドキュメント
-├── .env.example        # 環境変数のサンプル
-├── .gitignore
-├── package.json        # プロジェクトの依存関係 (Node.js)
-├── requirements.txt    # プロジェクトの依存関係 (Python)
-├── README.md           # このREADMEファイル
-└── ...
+```mermaid
+graph TD
+    A[lifegenius] --> B(client);
+    A --> C(server);
+    A --> D(data);
+    A --> E(scripts);
+    A --> F(docs);
+    A --> G(.env.example);
+    A --> H(.gitignore);
+    A --> I(package.json);
+    A --> J(requirements.txt);
+    A --> K(README.md);
+    B --> B1(public);
+    B --> B2(src);
+    B2 --> B21(components);
+    B2 --> B22(pages);
+    B2 --> B23(styles);
+    B2 --> B24(utils);
+    C --> C1(app);
+    C1 --> C11(models);
+    C1 --> C12(routes);
+    C1 --> C13(services);
+    C1 --> C14(utils);
+    C --> C2(tests);
+```
 
 ## 開発環境構築
 
