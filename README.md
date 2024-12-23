@@ -11,7 +11,7 @@
 
 ## 概要
 
-Lifegeniusは、遺伝子データとAIの力で一人ひとりの潜在能力を最大限に引き出し、自己実現をサポートする革新的な**パーソナライズド・ライフデザイン**プラットフォームです。学習、キャリア、健康、ウェルネスなど、人生のあらゆる側面を包括的に支援し、ユーザーがより豊かで充実した人生を送るためのサポートを提供します。
+🧬🧠 Lifegeniusは、遺伝子とAIを融合し、あなたの潜在能力を解き放つパーソナライズド・ライフデザインプラットフォームです。自己発見から生涯にわたる成長まで、あなたの人生を豊かにします。
 
 ## ミッション
 
@@ -62,7 +62,7 @@ Lifegeniusは、遺伝子データとAIの力で一人ひとりの潜在能力�
 *   **データベース:** PostgreSQL, MongoDB
 *   **AI/機械学習:** OpenAI API, TensorFlow, PyTorch, scikit-learn
 *   **バイオインフォマティクス:** Biopython, பிற ஓப்பன் சோர்ஸ் நூலகங்கள்
-*   **クラウドプラットフォーム:** AWS, GCP, or Azure (選択検討中)
+*   **クラウドプラットフォーム:** GCP
 *   **API連携:** 検査機関API, 教育プラットフォームAPI, キャリアマッチングプラットフォームAPI, 健康・ウェルネスサービスAPI
 
 ## プロジェクト構成
@@ -94,7 +94,6 @@ lifegenius/
 ├── README.md           # このREADMEファイル
 └── ...
 
-
 ## 開発環境構築
 
 ### 前提条件
@@ -103,18 +102,54 @@ lifegenius/
 *   npm / yarn
 *   Python (v3.8+)
 *   pip
-*   Docker (オプション)
+*   Docker
 
-### 手順
+### 手順 (Docker 推奨)
 
-1.  **リポジトリのクローン:**
+Docker を利用することで、より簡単に開発環境を構築できます。
+
+1. **Docker Compose ファイルの作成:**
+
+    プロジェクトルートに `docker-compose.yml` ファイルを作成し、以下の内容を記述します。
+
+    ```yaml
+    version: "3.8"
+    services:
+      client:
+        build: ./client
+        ports:
+          - "3000:3000"
+        volumes:
+          - ./client:/app
+          - node_modules:/app/node_modules
+        environment:
+          - NODE_ENV=development
+      server:
+        build: ./server
+        ports:
+          - "5000:5000"
+        volumes:
+          - ./server:/app
+        environment:
+          - PYTHONUNBUFFERED=1
+    ```
+
+2. **Docker Compose で起動:**
+
+    ```bash
+    docker-compose up -d
+    ```
+
+### 手順 (通常)
+
+1. **リポジトリのクローン:**
 
     ```bash
     git clone [無効な URL を削除しました]
     cd lifegenius
     ```
 
-2.  **フロントエンドのセットアップ:**
+2. **フロントエンドのセットアップ:**
 
     ```bash
     cd client
@@ -122,7 +157,7 @@ lifegenius/
     yarn dev # または npm run dev
     ```
 
-3.  **バックエンドのセットアップ:**
+3. **バックエンドのセットアップ:**
 
     ```bash
     cd ../server
@@ -132,11 +167,11 @@ lifegenius/
     python manage.py runserver # または適切な起動コマンド
     ```
 
-4.  **環境変数の設定:**
+4. **環境変数の設定:**
 
     `.env.example` を参考に `.env` ファイルを作成し、必要な環境変数を設定してください。
 
-5.  **データベースのセットアップ:**
+5. **データベースのセットアップ:**
 
     選択したデータベース (PostgreSQL, MongoDBなど) をインストールし、設定してください。
 
@@ -151,20 +186,24 @@ yarn test # または npm run test
 cd ../server
 source venv/bin/activate # Windows: venv\Scripts\activate
 pytest
+```
+
 貢献方法
-プロジェクトへの貢献は大歓迎です！貢献する前に、CONTRIBUTING.md (作成予定) をご覧ください。
+プロジェクトへの貢献は大歓迎です！貢献する前に、[CONTRIBUTING.md](CONTRIBUTING.md) (作成予定) をご覧ください。
 
 リポジトリをフォークします。
 機能ブランチを作成します (git checkout -b feature/AmazingFeature)。
 変更をコミットします (git commit -m 'Add some AmazingFeature')。
 ブランチをプッシュします (git push origin feature/AmazingFeature)。
 プルリクエストを開きます。
+
 ライセンス
 このプロジェクトは MIT License のもとでライセンスされています。
 
 連絡先
 プロジェクトリーダー: [あなたの名前] - [あなたのメールアドレス]
-プロジェクトウェブサイト: [プロジェクトのウェブサイトURL] (作成予定)
+プロジェクトウェブサイト: [プロジェクトのウェブサイトURL](作成予定)
+
 ロードマップ
 フェーズ1 (6ヶ月):
 プロトタイプ開発
